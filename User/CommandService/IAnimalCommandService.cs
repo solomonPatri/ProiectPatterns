@@ -12,13 +12,9 @@ namespace ProiectPatterns.User.CommandService
 
         Animal Add(Animal animal);
 
-        Animal Delete(int id);   
-      
+        Animal Delete(int id);
 
-
-
-
-
+        Animal Update(Animal animal);
 
     }
 }

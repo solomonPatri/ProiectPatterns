@@ -40,19 +40,7 @@ namespace ProiectPatterns.User.QueryService
             return this._repo.FindAnimalByName(name);
         }
 
-        public int GeneratenextId()
-        {
-            Random random = new Random();
-            int nrradnom = random.Next(100, 1000);
-
-            return nrradnom;
-
-
-
-
-
-        }
-
+      
 
 
 

@@ -16,17 +16,5 @@ namespace ProiectPatterns.User.QueryService
 
         Animal ReturnByName(string name);
 
-       
-
-
-
-
-
-
-
-
-
-
-
     }
 }

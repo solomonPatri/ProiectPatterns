@@ -9,10 +9,33 @@ internal class Program
     private static void Main(string[] args)
     {
 
-       View view = new View();
-        view.play();
+        //cod1
+
+        try
+        {
+
+            int error = int.Parse("abc");
+
+            //l1
+            //l2
+            //...
+            //ln
+
+        }
+        catch(FormatException ex)
+        {
+            Console.WriteLine("A ti introdus formatul gresit !");
+
+
+        }catch(Exception ex)
+        {
+
+            Console.WriteLine("Sa produs eroarea: " + ex.Message);
+
+        }
+       
      
-      
+        //cod2
 
         
     }

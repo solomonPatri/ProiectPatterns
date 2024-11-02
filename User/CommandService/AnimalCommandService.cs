@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProiectPatterns.system;
+using ProiectPatterns.User.exceptions;
 
 namespace ProiectPatterns.User.CommandService
 {
@@ -28,7 +30,7 @@ namespace ProiectPatterns.User.CommandService
                 return this._repo.AddAnimal(animal);
 
             }
-            return null;
+            throw new UserAlreadyExistException();
 
         }
 
@@ -42,11 +44,33 @@ namespace ProiectPatterns.User.CommandService
                 return animal;
 
             }
-            return null;
+            throw new UserNotfoundException();
 
 
         }
 
+        public Animal Update(Animal animal)
+        {
+
+            Animal update = _repo.FindAnimalById(animal.Id);
+
+            if (update!=null)
+            {
+                this._repo.UpdateAnimal(animal);
+                return update;
+            }
+          
+           throw new UserNotUpdateException();
+
+
+
+
+
+
+
+
+
+        }
 
 
 

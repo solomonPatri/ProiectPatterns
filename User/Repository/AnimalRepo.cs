@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using ProiectPatterns.User.Models;
@@ -151,7 +152,88 @@ namespace ProiectPatterns.User.Repository
 
 
         }
+        public Animal UpdateAnimal(Animal animal)
+        {
+            Animal editableAnimal = this.FindAnimalById(animal.Id);
 
+            if(animal.Name != null)
+            {
+
+                editableAnimal.Name = animal.Name;
+
+            }
+            if(animal is Mamiferi)
+            {
+                Mamiferi anm = ((Mamiferi)animal);
+                Mamiferi editableanimal = (Mamiferi)editableAnimal;
+                if (anm.Age != 0)
+                {
+
+                    editableanimal.Age = anm.Age;
+
+                }
+
+
+            }
+            if(animal is Reptile)
+            {
+                Reptile rept = ((Reptile)animal);
+                Reptile editanimal = (Reptile)editableAnimal;
+
+                if (rept.traiViata!=null)
+                {
+                    editanimal.traiViata = rept.traiViata;
+
+
+
+                }
+
+            }
+
+            if(animal is Anfibieni)
+            {
+
+                Anfibieni anf = ((Anfibieni)animal);
+                Anfibieni editanf = (Anfibieni)editableAnimal;
+
+                if (anf.Lungime != 0)
+                {
+
+                    editanf.Lungime = anf.Lungime;
+
+                }
+
+            }
+            if(animal is Pesti)
+            {
+
+                Pesti ps = ((Pesti)animal);
+                Pesti editps = (Pesti)editableAnimal;
+                if(ps.Kilograme!=0)
+                {
+
+                    editps.Kilograme = ps.Kilograme;
+
+
+                }
+
+            }
+
+            return editableAnimal;
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
       
 
 

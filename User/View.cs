@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProiectPatterns.User.Models;
+using ProiectPatterns.User.exceptions;
 
 namespace ProiectPatterns.User
 {
@@ -76,10 +78,74 @@ namespace ProiectPatterns.User
 
         }
 
+        public void AdaugareAnimal()
+        {
+            Console.WriteLine("Ce type de animal doriti sa adaugati: Mamiferi/Reptile/Anfibieni/Pesti" + "\n");
+
+            string type = Console.ReadLine();
+
+            Console.WriteLine("Numele animalului" + "\n");
+            string name = Console.ReadLine();
+            Animal anim = _queryservice.ReturnByName(name);
+
+            try
+            {
+
+
+                _servicecommand.Add(anim);
+
+            }catch(UserAlreadyExistException a)
+            {
+                Console.WriteLine(a.Message);
+            }
+
+
+        }
+
+
+        public void DeleteAnimal()
+        {
+            Console.WriteLine("Introduceti numele animalului care doriti sa eliminati:" + "\n");
+            string name = Console.ReadLine();
+
+            Animal delete = _queryservice.ReturnByName(name);
+
+            try
+            {
+                _servicecommand.Delete(delete.Id);
+
+            }catch(UserNotfoundException d)
+            {
+                Console.WriteLine(d.Message);
+            }
+            
+
+
+        }
+
+        public void Udpate()
+        {
+            Console.WriteLine("Introduceiti numele animalului care doriti sa modificati" + "\n");
+            string name = Console.ReadLine();
+
+            Animal update = _queryservice.ReturnByName(name);
+
+            try
+            {
+                
+
+
+
+            }
 
 
 
 
+
+
+
+
+        }
         
 
 

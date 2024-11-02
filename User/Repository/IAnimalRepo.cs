@@ -19,9 +19,7 @@ namespace ProiectPatterns.User.Repository
 
         Animal DeleteAnimal(int id);
 
-
-        public int GeneratenextId();
-        
+        Animal UpdateAnimal(Animal animal);
 
 
 
